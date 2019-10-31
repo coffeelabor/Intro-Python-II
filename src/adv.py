@@ -1,6 +1,10 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
+
+player = {
+    "playerOne": Player("Reed", 'outside')
+}
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -21,7 +25,6 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -33,14 +36,53 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
-# Main
-#
-
 # Make a new player object that is currently in the 'outside' room.
 
-# Write a loop that:
-#
+playerRoom = room['outside']
+
+stop = False
+
+while not stop:
+    print(f'You see a {playerRoom.name}, {playerRoom.option}')
+    print("############## Your Move! #####################")
+    move = input('What way do you want to go: ')
+
+    if move.lower() == 'n':
+        playerRoom = playerRoom.n_to
+    elif move.lower() == 's':
+        playerRoom = playerRoom.s_to
+    elif move.lower() == 'e':
+        playerRoom = playerRoom.e_to
+    elif move.lower() == 'w':
+        playerRoom = playerRoom.w_to
+    elif move.lower() == 'q':
+        stop = True
+    else:
+        print("you cant do that")
+    print(f"######### Your in the {playerRoom.name} ##############")
+print("############Player##############")
+user = player['playerOne'].name
+print(user)
+
+print("############Room##############")
+currentRoom = room['outside'].n_to.name
+print(currentRoom)
+
+print("############Room Loop##############")
+for k, v in room.items():
+    print(k, v.name, v.option)
+
+# print("############Move##############")
+# move = input('What way do you want to go: ')
+# moveDir(move)
+
+
+# print(room)
+
+# while True:
+#     currentRoom = Room.name[1]
+#     print(currentRoom)
+
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
@@ -49,3 +91,28 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+############# Junk Code ######################
+# def moveDir(move):
+#     if (move == 'n'):
+#         print('north')
+#     elif (move == 's'):
+#         print('south')
+#     elif (move == 'e'):
+#         print('east')
+#     elif (move == 'w'):
+#         print('west')
+#     else:
+#         print('wrong')
+
+# directions = {
+#     'n': 'n_to',
+#     's': 's_to',
+#     'w': 'w_to',
+#     'e': 'e_to'
+# }
+
+# class Player:
+#     def __init__(self, name):
+#         self.name = name
+# Write a loop that:
