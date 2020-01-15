@@ -8,4 +8,4 @@ class Player:
         self.location = location
 
 # class Monster(Player):
-#     def
+#     def __init__(self, type)
