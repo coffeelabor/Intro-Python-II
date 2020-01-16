@@ -84,3 +84,23 @@ while True:
     else:
         print('dont be lame, just type one of the commands')
     #if so ececute the proper command
+
+
+'''
+
+Day 2 MVP
+
+Make rooms able to hold multiple items
+    I think I need to make a new file with a new class for items
+    maybe I can just copy the way the rooms interact with the player
+
+Make the player able to carry multiple items
+    If I just swicth a player being in a room with a item being with a player
+
+Add items to the game that the user can carry around
+    This is where I think i need to add a new file with a class
+
+Add `get [ITEM_NAME]` and `drop [ITEM_NAME]` commands to the parser
+    this is where I can copy the rooms/player and have items 'leave' and 'enter' a player
+
+'''
