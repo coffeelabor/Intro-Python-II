@@ -1,6 +1,10 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
+
+player = {
+    "readyPlayerOne": Player("Reed", "outside")
+}
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -39,6 +43,8 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+# playerRoom = ['outside']
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +55,13 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+#Create a player
+#let player input their name
+
+player = Player("Reed", room["outside"])
+
+#Create basic REPL loop 
+    #Read command
+    #check if its n/s/e/w/q
+    #if so ececute the proper command
