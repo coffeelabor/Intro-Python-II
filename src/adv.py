@@ -59,9 +59,28 @@ room['treasure'].s_to = room['narrow']
 #Create a player
 #let player input their name
 
-player = Player("Reed", room["outside"])
+player = Player(input("Player name: "), room["outside"])
+print(player.current_room)
+
+directions = ["n", "s", "e", "w",]
+
+print(player.name)
+
+print(room['outside'].n_to)
+
+
 
 #Create basic REPL loop 
+while True:
     #Read command
+    cmd = input("~~> ".lower())
     #check if its n/s/e/w/q
+    if cmd in directions:
+        #make palyer travel in that direaction
+        player.travel(cmd)
+    elif cmd == "q":
+        print("Later")
+        break
+    else:
+        print('dont be lame, just type one of the commands')
     #if so ececute the proper command
